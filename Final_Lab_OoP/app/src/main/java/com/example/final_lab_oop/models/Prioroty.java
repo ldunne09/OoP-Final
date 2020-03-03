@@ -1,4 +1,4 @@
-package com.example.final_lab_oop;
+package com.example.final_lab_oop.models;
 
 public enum Prioroty {
     RED,

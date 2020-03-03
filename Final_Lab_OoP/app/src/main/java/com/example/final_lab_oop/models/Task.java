@@ -2,8 +2,6 @@ package com.example.final_lab_oop.models;
 
 
 
-import com.example.final_lab_oop.Prioroty;
-
 import java.lang.reflect.Array;
 
     public class Task {
