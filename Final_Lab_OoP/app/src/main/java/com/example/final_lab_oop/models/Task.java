@@ -1,4 +1,4 @@
-package com.example.final_lab_oop;
+package com.example.final_lab_oop.models;
 
 public class Task {
     package models;
@@ -21,8 +21,8 @@ import java.lang.reflect.Array;
             setLevel(level);
             setMultiplier(multiplier);
             setName(name);
-            this.description = description;
-            this.taskHolder = taskHolder;
+            setDescription(description);
+            setTaskHolder(taskHolder);
             this.priority = priority;
         }
 
