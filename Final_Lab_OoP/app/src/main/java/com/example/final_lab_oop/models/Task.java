@@ -16,7 +16,8 @@ import java.lang.reflect.Array;
         private Prioroty priority;
 
 
-        public Task(int level, int multiplier, String name, String description,) {
+
+        public Task(int level, int multiplier, String name, String description) {
             setLevel(level);
             setMultiplier(multiplier);
             setName(name);
@@ -25,13 +26,11 @@ import java.lang.reflect.Array;
         }
 
         public int expGained(int exp, int level) {
+
         }
 
-
-
-
         public static int getExp() {
-            return exp;
+            return BASE_EXP;
         }
 
         public int getLevel() {
@@ -74,11 +73,5 @@ import java.lang.reflect.Array;
             this.taskHolder = taskHolder;
         }
 
-        public Priority getPriority() {
-            return priority;
-        }
 
-        public void setPriority(Priority priority) {
-            this.priority = priority;
-        }
 }

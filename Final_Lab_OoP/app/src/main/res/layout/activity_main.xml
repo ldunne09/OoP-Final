@@ -21,11 +21,22 @@
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="123dp">
 
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="yuyuxbuyd" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hrllp"
+        tools:layout_editor_absoluteX="201dp"
+        tools:layout_editor_absoluteY="115dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="yuyuxbuyd"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="123dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
