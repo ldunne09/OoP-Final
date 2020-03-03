@@ -1,7 +1,6 @@
 package com.example.final_lab_oop.models;
 
-public class Task {
-    package models;
+
 
 import java.lang.reflect.Array;
 
@@ -25,9 +24,11 @@ import java.lang.reflect.Array;
 
         }
 
-        public int expGained(int exp, int level){
-
+        public int expGained(int exp, int level) {
         }
+
+
+
 
         public static int getExp() {
             return exp;
