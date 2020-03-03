@@ -13,7 +13,7 @@ import java.lang.reflect.Array;
         private String name;
         private String description;
         private Array taskHolder;
-        private Prioroty priority;
+        private Priority priority;
 
 
 
