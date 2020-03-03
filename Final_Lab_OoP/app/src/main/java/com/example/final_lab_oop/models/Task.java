@@ -17,13 +17,12 @@ import java.lang.reflect.Array;
         private Priority priority;
 
 
-        public Task(int level, int multiplier, String name, String description, Array taskHolder, Priority priority) {
+        public Task(int level, int multiplier, String name, String description,) {
             setLevel(level);
             setMultiplier(multiplier);
             setName(name);
             setDescription(description);
-            setTaskHolder(taskHolder);
-            this.priority = priority;
+
         }
 
         public int expGained(int exp, int level){
