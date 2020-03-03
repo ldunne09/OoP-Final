@@ -13,7 +13,8 @@ import java.lang.reflect.Array;
         private String name;
         private String description;
         private Array taskHolder;
-        private Priority priority;
+        private Prioroty priority;
+
 
 
         public Task(int level, int multiplier, String name, String description) {
@@ -29,7 +30,7 @@ import java.lang.reflect.Array;
         }
 
         public static int getExp() {
-            return exp;
+            return BASE_EXP;
         }
 
         public int getLevel() {
@@ -72,11 +73,5 @@ import java.lang.reflect.Array;
             this.taskHolder = taskHolder;
         }
 
-        public Priority getPriority() {
-            return priority;
-        }
 
-        public void setPriority(Priority priority) {
-            this.priority = priority;
-        }
 }
