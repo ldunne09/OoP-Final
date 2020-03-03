@@ -2,18 +2,20 @@ package com.example.final_lab_oop.models;
 
 
 
+import com.example.final_lab_oop.Prioroty;
+
 import java.lang.reflect.Array;
 
     public class Task {
 
-        private static final int exp;
+        private static final int BASE_EXP;
 
         private int level;
         private int multiplier;
         private String name;
         private String description;
         private Array taskHolder;
-        private Priority priority;
+        private Prioroty priority;
 
 
         public Task(int level, int multiplier, String name, String description,) {
