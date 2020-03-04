@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    tools:context=".CreateEntryActivity">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Priority"
@@ -19,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Task"
@@ -31,7 +30,7 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Taks Description."
@@ -72,7 +71,7 @@
     </RadioGroup>
 
     <EditText
-        android:id="@+id/etTask"
+        android:id="@+id/etTask2"
         android:layout_width="196dp"
         android:layout_height="42dp"
         android:layout_marginStart="79dp"
@@ -88,7 +87,7 @@
         app:layout_constraintVertical_bias="0.081" />
 
     <EditText
-        android:id="@+id/etTaskDescrip"
+        android:id="@+id/etTaskDescrip2"
         android:layout_width="296dp"
         android:layout_height="39dp"
         android:layout_marginStart="36dp"
@@ -104,7 +103,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnAdd2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Task"
@@ -116,7 +115,7 @@
         app:layout_constraintVertical_bias="0.96" />
 
     <Button
-        android:id="@+id/BtnHome"
+        android:id="@+id/btnHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -126,5 +125,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.983" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
