@@ -6,4 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".views.LoadFile_Activity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.LoadFile_Activity">
+
+        <ScrollView
+            android:layout_width="409dp"
+            android:layout_height="570dp"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="85dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="411dp"
+            android:layout_height="85dp"
+            android:src="@drawable/ic_launcher_foreground"
+            tools:layout_editor_absoluteX="1dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="onClickLoad"
+            android:text="Load"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="411dp"
+        android:layout_height="645dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="85dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="411dp"
+        android:layout_height="85dp"
+        android:src="@drawable/ic_launcher_foreground"
+        tools:layout_editor_absoluteX="1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
