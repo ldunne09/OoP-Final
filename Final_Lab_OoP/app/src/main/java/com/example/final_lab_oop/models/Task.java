@@ -26,7 +26,12 @@ import java.lang.reflect.Array;
         }
 
         public int expGained(int exp, int level) {
+
             return 0;
+        }
+
+        public int levelIncrease(){
+            
         }
 
         public static int getExp() {
@@ -39,6 +44,7 @@ import java.lang.reflect.Array;
 
         public void setLevel(int level) {
             this.level = level;
+            if (){}
         }
 
         public int getMultiplier() {
