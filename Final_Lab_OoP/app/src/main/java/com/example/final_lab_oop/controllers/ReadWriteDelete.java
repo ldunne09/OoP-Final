@@ -1,39 +1,84 @@
 package com.example.final_lab_oop.controllers;
 
+import android.widget.EditText;
+
 import com.example.final_lab_oop.models.*;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.*;
 
 public class ReadWriteDelete implements java.io.Serializable {
 
-    public static void write(User user) {
-        user.setName();
-        user.setPassword();
-        user.setExp();
-        user.setLvl();
+    public static User[] addUser(User[] users, User user)
+    {
+        List<User> userList = new ArrayList<User>(Arrays.asList(users));
+        userList.add(user);
+        users = userList.toArray(users);
+
+        // return the array
+        return users;
     }
 
-    public static void read() {
+    public static void newUser(User[] users, User user, String name, String password) {
+        addUser(users, user);
+        user.setName(name);
+        user.setPassword(password);
+        user.setExp(0);
+        user.setLvl(0);
 
+        String filename = user.getName() + ".usr";
+
+        try {
+            FileOutputStream file = new FileOutputStream(filename);
+            ObjectOutputStream out = new ObjectOutputStream(file);
+
+            out.writeObject(user);
+
+            out.close();
+            file.close();
+        } catch(IOException ioe)  {
+            System.out.println("IO thing borken.");
+        }
     }
 
-    public static void delete() {
-
+    public static void write(User user, int exp, int lvl) {
+        user.setExp(exp);
+        user.setLvl(lvl);
     }
 
+    public static void read(User user) {
+        String name = user.getName();
+        String password = user.getPassword();
+        int exp = user.getExp();
+        int lvl = user.getLvl();
 
+        User userToPrint = null;
+
+        try {
+            FileInputStream file = new FileInputStream(user.getName() + ".usr");
+            ObjectInputStream in = new ObjectInputStream(file);
+
+            userToPrint = (User) in.readObject();
+
+            in.close();
+            file.close();
+
+            System.out.println("name" + userToPrint.getName());
+            System.out.println("password" + userToPrint.getPassword());
+            System.out.println("level" + userToPrint.getLvl());
+            System.out.println("experience" + userToPrint.getExp());
+        } catch(IOException ioe) {
+            System.out.println("IO thing borken.");
+        } catch(ClassNotFoundException cnfe) {
+            System.out.println("Class thing borken");
+        }
+    }
+
+    public static void delete(User user) {
+
+    }
 }
-//    private void buttonReadFile_onClick(View view) {
-//        try {
-//            StringBuilder result = new StringBuilder();
-//            String line;
-//
-//            String folder = getApplication().getFilesDir().getAbsolutePath() + File.separator + editTextFolderName.getText().toString();
-//            File subFolder = new File(folder);
-//            BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(folder, editTextFileName.getText().toString())));
-//            while ((line = bufferedReader.readLine()) != null) {
-//                result.append(line);
-//            }
-//            editTextContent.setText(result.toString());
-//        } catch (Exception e) {
-//            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-//        }
-//    }
