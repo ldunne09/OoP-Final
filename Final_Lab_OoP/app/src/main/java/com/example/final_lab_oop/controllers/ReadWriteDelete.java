@@ -4,12 +4,7 @@ import android.widget.EditText;
 
 import com.example.final_lab_oop.models.*;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.*;
 
 public class ReadWriteDelete implements java.io.Serializable {
@@ -81,13 +76,33 @@ public class ReadWriteDelete implements java.io.Serializable {
 
     public static void delete(User user) {
         try {
-            FileInputStream file = new FileInputStream(user.getName() + ".txt");
-            ObjectInputStream in = new ObjectInputStream(file);
-            
+            emptyFile(user);
+            deleteFile(user);
+
         } catch(FileNotFoundException fnfe) {
             System.out.println("No find file");
         } catch(IOException ioe) {
             System.out.println("IO thing borken.");
+        }
+    }
+
+    private static void emptyFile(User user) throws IOException {
+        OutputStream os = null;
+        try {
+            os = new FileOutputStream(user.getName() + ".usr");
+        } finally {
+            if (os != null) {
+                os.close();
+            }
+        }
+    }
+
+    private static void deleteFile(User user) {
+        File file = new File(user.getName() + ".usr");
+        if (file.delete()) {
+            System.out.println(user.getName() + " deleted sucessfully...");
+        } else {
+            System.out.println(user.getName() + " deletion failed!");
         }
     }
 }
