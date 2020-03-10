@@ -9,14 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.Create_propfile"></activity>
-        <activity android:name=".views.Themes" />
-        <activity android:name=".views.LoadEntry_activity" />
-        <activity android:name=".views.LoadFile_Activity" />
-        <activity android:name=".views.UserMenuActivity" />
-        <activity android:name=".views.PasswordEntryActivity" />
-        <activity android:name=".views.MainMenuActivity" />
-        <activity android:name=".views.CreateEntryActivity" />
         <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
