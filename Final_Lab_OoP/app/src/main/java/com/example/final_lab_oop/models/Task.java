@@ -26,7 +26,6 @@ import java.lang.reflect.Array;
         }
 
         public int expGained(int exp, int level) {
-
             return 0;
         }
 
