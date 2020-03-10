@@ -8,7 +8,6 @@ import java.lang.reflect.Array;
 
         private static final int BASE_EXP = 0;
 
-        private int level;
         private int multiplier;
         private String name;
         private String description;
@@ -25,8 +24,9 @@ import java.lang.reflect.Array;
 
         }
 
-        public int expGained(int exp, int level) {
-            return 0;
+        public int expGained(int exp) {
+
+            return expGained(12);
         }
 
 
@@ -36,6 +36,7 @@ import java.lang.reflect.Array;
 
 
         public int getMultiplier() {
+
             return multiplier;
         }
 
