@@ -1,7 +1,5 @@
 package com.example.final_lab_oop.controllers;
 
-import android.widget.EditText;
-
 import com.example.final_lab_oop.models.*;
 
 import java.io.*;
@@ -9,6 +7,7 @@ import java.util.*;
 
 public class ReadWriteDelete implements java.io.Serializable {
 
+    //Not Using
     public static User[] addUser(User[] users, User user)
     {
         List<User> userList = new ArrayList<User>(Arrays.asList(users));
@@ -19,6 +18,7 @@ public class ReadWriteDelete implements java.io.Serializable {
         return users;
     }
 
+    //Not Using
     public static void newUser(User[] users, User user, String name, String password) {
         addUser(users, user);
         user.setName(name);
