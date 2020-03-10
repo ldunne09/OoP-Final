@@ -30,7 +30,7 @@ import java.lang.reflect.Array;
         }
 
         public int levelIncrease(){
-            
+
         }
 
         public static int getExp() {
