@@ -1,6 +1,8 @@
 package com.example.final_lab_oop.models;
 
-public class User {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class User extends AppCompatActivity {
 
     private String name;
     private String password;
