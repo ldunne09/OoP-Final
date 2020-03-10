@@ -17,8 +17,8 @@ import java.lang.reflect.Array;
 
 
 
-        public Task(int level, int multiplier, String name, String description) {
-            setLevel(level);
+        public Task( int multiplier, String name, String description) {
+
             setMultiplier(multiplier);
             setName(name);
             setDescription(description);
@@ -29,22 +29,11 @@ import java.lang.reflect.Array;
             return 0;
         }
 
-        public int levelIncrease(){
-
-        }
 
         public static int getExp() {
             return BASE_EXP;
         }
 
-        public int getLevel() {
-            return level;
-        }
-
-        public void setLevel(int level) {
-            this.level = level;
-            if (){}
-        }
 
         public int getMultiplier() {
             return multiplier;
