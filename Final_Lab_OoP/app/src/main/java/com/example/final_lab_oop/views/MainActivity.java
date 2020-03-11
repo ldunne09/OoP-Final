@@ -1,7 +1,9 @@
 package com.example.final_lab_oop.views;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.final_lab_oop.R;
 import com.example.final_lab_oop.controllers.AppController;
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(this, AddNoteActivity.class);
         intent.putExtra("AppController", appController);
+        notify();
         startActivity(intent);
     }
 
@@ -72,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
         menuInflater.inflate(R.menu.mainmenu_bar, menu);
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
