@@ -7,101 +7,52 @@ import java.util.*;
 
 public class ReadWriteDelete implements java.io.Serializable {
 
-    //Not Using
-    public static User[] addUser(User[] users, User user)
-    {
-        List<User> userList = new ArrayList<User>(Arrays.asList(users));
-        userList.add(user);
-        users = userList.toArray(users);
-
-        // return the array
-        return users;
-    }
-
-    //Not Using
-    public static void newUser(User[] users, User user, String name, String password) {
-        addUser(users, user);
-        user.setName(name);
-        user.setPassword(password);
-        user.setCoins(0);
-
-        String filename = user.getName() + ".usr";
-
+    public static void saveTask(ArrayList<Task> tasks) {
         try {
-            FileOutputStream file = new FileOutputStream(filename);
-            ObjectOutputStream out = new ObjectOutputStream(file);
+            FileOutputStream fileStream = new FileOutputStream(new File("tasks.txt"));
+            ObjectOutputStream outputStream = new ObjectOutputStream(fileStream);
 
-            out.writeObject(user);
+            outputStream.writeObject(tasks);
 
-            out.close();
-            file.close();
-        } catch(IOException ioe)  {
-            System.out.println("IO thing borken.");
+            outputStream.close();
+            fileStream.close();
+        } catch (IOException ioe) {
+            System.out.println("Error.");
         }
     }
 
-    public static void write(User user, String name, String password, int exp) {
-        user.setName(name);
-        user.setPassword(password);
-        user.setCoins(exp);
-    }
-
-    public static void read(User user) {
-        String name = user.getName();
-        String password = user.getPassword();
-        int exp = user.getCoins();
-
-        User userToPrint = null;
-
+    public static ArrayList<Task> readTask() {
         try {
-            FileInputStream file = new FileInputStream(user.getName() + ".usr");
-            ObjectInputStream in = new ObjectInputStream(file);
+            FileInputStream fileStream = new FileInputStream(new File("tasks.txt"));
+            ObjectInputStream inputStream = new ObjectInputStream(fileStream);
 
-            userToPrint = (User) in.readObject();
-
-            in.close();
-            file.close();
-
-            System.out.println("name" + userToPrint.getName());
-            System.out.println("password" + userToPrint.getPassword());
-            System.out.println("level" + userToPrint.getLvl());
-            System.out.println("experience" + userToPrint.getCoins());
-        } catch(IOException ioe) {
-            System.out.println("IO thing borken.");
-        } catch(ClassNotFoundException cnfe) {
-            System.out.println("Class thing borken.");
+            return (ArrayList<Task>) (inputStream.readObject());
+        } catch (IOException ioe) {
+            return null;
+        } catch (ClassNotFoundException cnfe) {
+            return null;
         }
     }
 
-    public static void delete(User user) {
+    public static void saveCoins(int coins) {
         try {
-            emptyFile(user);
-            deleteFile(user);
-
-        } catch(FileNotFoundException fnfe) {
-            System.out.println("No find file");
-        } catch(IOException ioe) {
-            System.out.println("IO thing borken.");
+            FileWriter writer = new FileWriter("coins.txt");
+            writer.write(coins);
+            writer.close();
+        } catch (IOException ioe) {
+            System.out.println("File couldn't be saved.");
         }
     }
 
-    private static void emptyFile(User user) throws IOException {
-        OutputStream os = null;
+    public static int readCoins() {
         try {
-            os = new FileOutputStream(user.getName() + ".usr");
-        } finally {
-            if (os != null) {
-                os.close();
-            }
-        }
-    }
-
-    private static void deleteFile(User user) {
-        File file = new File(user.getName() + ".usr");
-        if (file.delete()) {
-            System.out.println(user.getName() + " deleted sucessfully...");
-        } else {
-            System.out.println(user.getName() + " deletion failed!");
+            FileReader reader = new FileReader("coins.txt");
+            BufferedReader boof = new BufferedReader(reader);
+            int coins = Integer.parseInt(boof.readLine());
+            reader.close();
+            return coins;
+        } catch (IOException ioe) {
+            return -1;
         }
     }
 }
