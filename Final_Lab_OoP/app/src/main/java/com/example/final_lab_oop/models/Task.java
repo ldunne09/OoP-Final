@@ -6,42 +6,14 @@ import java.lang.reflect.Array;
 
     public class Task {
 
-        private static final int BASE_EXP = 0;
-
-        private int multiplier;
         private String name;
         private String description;
-        private Array taskHolder;
-        private Priority priority;
+        private int coins;
 
-
-
-        public Task( int multiplier, String name, String description) {
-
-            setMultiplier(multiplier);
+        public Task(String name, String description, int coins) {
             setName(name);
             setDescription(description);
-
-        }
-
-        public int expGained(int exp) {
-
-            return expGained(12);
-        }
-
-
-        public static int getExp() {
-            return BASE_EXP;
-        }
-
-
-        public int getMultiplier() {
-
-            return multiplier;
-        }
-
-        public void setMultiplier(int multiplier) {
-            this.multiplier = multiplier;
+            setCoins(coins);
         }
 
         public String getName() {
@@ -60,14 +32,11 @@ import java.lang.reflect.Array;
             this.description = description;
         }
 
-        public Array getTaskHolder() {
-            return taskHolder;
+        public int getCoins() {
+            return coins;
         }
 
-        public void setTaskHolder(Array taskHolder) {
-            this.taskHolder = taskHolder;
+        public void setCoins(int coins) {
+            this.coins = coins;
         }
-
-
-
-}
+    }

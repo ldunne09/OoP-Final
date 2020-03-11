@@ -26,11 +26,12 @@ public class ShopActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
         recycleView = findViewById(R.id.recycleView);
-        layoutManager = new LinearLayoutManager(this);
         recycleView.setLayoutManager(layoutManager);
 
         testAdapter = new TestAdapter(this);
         recycleView.setAdapter(testAdapter);
+
+        recycleView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 

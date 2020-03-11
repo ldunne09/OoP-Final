@@ -36,13 +36,11 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
     }
 
 
-    //This then determines how big it and displays it to the screen
+    //This then determines how many rows will be shown on the screen
     @Override
     public int getItemCount() {
-        return 0;
+        return 3;
     }
-
-
 
 
 

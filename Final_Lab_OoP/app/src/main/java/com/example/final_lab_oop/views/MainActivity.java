@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item); //Fancy way of saying return false
         }
-
-        TestAdapter testAdapter = new TestAdapter();
     }
 }
 

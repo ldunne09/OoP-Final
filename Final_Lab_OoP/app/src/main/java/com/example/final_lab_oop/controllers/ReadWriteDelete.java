@@ -23,7 +23,7 @@ public class ReadWriteDelete implements java.io.Serializable {
         addUser(users, user);
         user.setName(name);
         user.setPassword(password);
-        user.setExp(0);
+        user.setCoins(0);
 
         String filename = user.getName() + ".usr";
 
@@ -43,13 +43,13 @@ public class ReadWriteDelete implements java.io.Serializable {
     public static void write(User user, String name, String password, int exp) {
         user.setName(name);
         user.setPassword(password);
-        user.setExp(exp);
+        user.setCoins(exp);
     }
 
     public static void read(User user) {
         String name = user.getName();
         String password = user.getPassword();
-        int exp = user.getExp();
+        int exp = user.getCoins();
 
         User userToPrint = null;
 
@@ -65,7 +65,7 @@ public class ReadWriteDelete implements java.io.Serializable {
             System.out.println("name" + userToPrint.getName());
             System.out.println("password" + userToPrint.getPassword());
             System.out.println("level" + userToPrint.getLvl());
-            System.out.println("experience" + userToPrint.getExp());
+            System.out.println("experience" + userToPrint.getCoins());
         } catch(IOException ioe) {
             System.out.println("IO thing borken.");
         } catch(ClassNotFoundException cnfe) {
