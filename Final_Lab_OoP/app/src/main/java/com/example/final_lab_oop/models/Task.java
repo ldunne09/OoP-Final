@@ -24,28 +24,6 @@ public class Task {
 
         }
 
-        public int expGained(int exp) {
-
-            return expGained(12);
-        }
-
-
-        public static int getExp() {
-          
-            return BASE_EXP;
-        }
-
-
-        public int getMultiplier() {
-
-            return multiplier;
-        }
-
-        public void setMultiplier(int multiplier) {
-            this.multiplier = multiplier;
->>>>>>> 079a50f9c987b7dd5382a9437b352e46d98de335
-        }
-
         public String getName() {
             return name;
         }
