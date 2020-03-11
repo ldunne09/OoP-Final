@@ -21,13 +21,11 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
         this.context = context;
     }
 
-
     @Override
     public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.shop_item, parent, false);
         return new ViewHolder(v);
     }
-
 
     //This populates the array with items that we want to use
     @Override
@@ -35,16 +33,11 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
 
     }
 
-
     //This then determines how many rows will be shown on the screen
     @Override
     public int getItemCount() {
         return 3;
     }
-
-
-
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -53,11 +46,11 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.ViewHolder> {
         public ImageView colorImage;
 
         public ViewHolder(View itemView) {
-             super(itemView);
+            super(itemView);
 
-             colorTV = itemView.findViewById(R.id.colorTV);
-             purchaseBtn = itemView.findViewById(R.id.purchaseButton);
-             colorImage = itemView.findViewById(R.id.colorImage);
+            colorTV = itemView.findViewById(R.id.colorTV);
+            purchaseBtn = itemView.findViewById(R.id.purchaseButton);
+            colorImage = itemView.findViewById(R.id.colorImage);
         }
     }
 }
