@@ -2,6 +2,7 @@ package com.example.final_lab_oop.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -49,17 +50,19 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            //Go To Themes Page
             case R.id.my_themes:
-                //Go To Themes Page
                 goToThemes();
                 return true;
+            //Go To Shop
             case R.id.view_shop:
-                //Go To Shop
                 goToShop();
                 return true;
             default:
                 return super.onOptionsItemSelected(item); //Fancy way of saying return false
         }
+
+        TestAdapter testAdapter = new TestAdapter();
     }
 }
 
