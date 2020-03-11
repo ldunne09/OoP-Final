@@ -14,11 +14,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Toast;
 
 import com.example.final_lab_oop.R;
 import com.example.final_lab_oop.controllers.AppController;
 import com.example.final_lab_oop.controllers.ReadWriteDelete;
+import com.example.final_lab_oop.models.Task;
 import com.example.final_lab_oop.models.TaskAdapter;
 
 import java.io.Serializable;
@@ -49,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(this, AddNoteActivity.class);
         intent.putExtra("AppController", appController);
-        notify();
         startActivity(intent);
+
     }
 
     public void goToThemes()
@@ -68,7 +70,10 @@ public class MainActivity extends AppCompatActivity {
     public void clearList()
     {
         appController.clearTasks(this);
+        taskAdapter.notifyDataSetChanged();
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,14 +82,13 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
             case R.id.clear_list:
                 clearList();
+                Toast.makeText(this, "Task Deleted", Toast.LENGTH_SHORT).show();
                 return true;
             //Go To Themes Page
             case R.id.my_themes:

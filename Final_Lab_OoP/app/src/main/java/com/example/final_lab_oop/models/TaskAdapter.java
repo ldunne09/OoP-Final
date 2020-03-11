@@ -37,6 +37,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         holder.titleTV.setText(currentTask.getName());
         holder.descriptionTV.setText(currentTask.getDescription());
         holder.bountyTV.setText(currentTask.getCoins() + "");
+
+
     }
 
     //This then determines how many rows will be shown on the screen

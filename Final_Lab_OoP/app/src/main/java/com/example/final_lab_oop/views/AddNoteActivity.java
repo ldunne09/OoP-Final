@@ -11,15 +11,19 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.final_lab_oop.R;
 import com.example.final_lab_oop.controllers.AppController;
 import com.example.final_lab_oop.controllers.ReadWriteDelete;
 import com.example.final_lab_oop.models.Task;
+import com.example.final_lab_oop.models.TaskAdapter;
 
 public class AddNoteActivity extends AppCompatActivity {
 
     private AppController appController;
+    //I added this in
+    private TaskAdapter taskAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,7 @@ public class AddNoteActivity extends AppCompatActivity {
         //Gets intent from MainActivity
         Intent intent = getIntent();
 
-        //casted to an appcontroller to an object
+        //casted to an appcCntroller to an object
         appController = (AppController) intent.getSerializableExtra("AppController");
     }
 
@@ -52,14 +56,19 @@ public class AddNoteActivity extends AppCompatActivity {
             case R.id.save_note:
                 //Save all Configuration Settings
                 saveTask();
+                Toast.makeText(this, "Saved Task", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item); //Fancy way of saying return false
         }
     }
 
+
+
     //Actually Saves Task
     public void saveTask() {
+
+
         EditText titleET = findViewById(R.id.titleET);
         EditText descriptionET = findViewById(R.id.descriptionET);
         RadioButton greenBtn = findViewById(R.id.greenButton);
@@ -70,19 +79,25 @@ public class AddNoteActivity extends AppCompatActivity {
         if (greenBtn.isChecked()) {
             coins = 2;
         } else if (redBtn.isChecked()) {
-            coins = 5;
-        } else if (yellowBtn.isChecked()) {
             coins = 8;
+        } else if (yellowBtn.isChecked()) {
+            coins = 5;
         }
 
         String name = titleET.getText().toString();
-        String description = descriptionET.getText().toString();
 
+        String description = descriptionET.getText().toString();
 
         Task task = new Task(name, description, coins);
         //Adds it to an array list
+
         appController.addTask(task);
+
         ReadWriteDelete.saveTask(appController.getTasks(), this);
+
+        taskAdapter.notifyDataSetChanged();
+
         finish();
+
     }
 }
