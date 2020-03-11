@@ -20,9 +20,7 @@ public class Task {
         public Task(String name, String description, int coins) {
             setName(name);
             setDescription(description);
-<<<<<<< HEAD
             setCoins(coins);
-=======
 
         }
 
