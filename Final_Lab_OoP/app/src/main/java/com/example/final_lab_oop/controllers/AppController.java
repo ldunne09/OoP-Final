@@ -6,7 +6,7 @@ public class AppController {
 
     public void saveTask(Task task)
     {
-        ReadWriteDelete.write();
+        ReadWriteDelete.write(hand);
     }
 
 }
