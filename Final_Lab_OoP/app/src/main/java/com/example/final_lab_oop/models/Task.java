@@ -2,9 +2,16 @@ package com.example.final_lab_oop.models;
 
 
 
+import android.widget.Adapter;
+
+import com.example.final_lab_oop.views.TestAdapter;
+
+import java.io.File;
 import java.lang.reflect.Array;
 
-    public class Task {
+import static java.util.logging.Logger.global;
+
+public class Task {
 
         private static final int BASE_EXP = 0;
 
@@ -31,6 +38,7 @@ import java.lang.reflect.Array;
 
 
         public static int getExp() {
+          
             return BASE_EXP;
         }
 
@@ -66,6 +74,21 @@ import java.lang.reflect.Array;
 
         public void setTaskHolder(Array taskHolder) {
             this.taskHolder = taskHolder;
+        }
+
+        public int getPriority() {
+            switch (TestAdapter) {
+                case Priority.GREEN:
+                    return 2;
+
+                case Priority.YELLOW:
+                    return 5;
+
+                case Priority.RED:
+                    return 8;
+                default:
+                    return 1;
+            }
         }
 
 
