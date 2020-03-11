@@ -13,60 +13,38 @@ import static java.util.logging.Logger.global;
 
 public class Task {
 
-        private String name;
-        private String description;
-        private int coins;
+    private String name;
+    private String description;
+    private int coins;
 
-        public Task(String name, String description, int coins) {
-            setName(name);
-            setDescription(description);
-            setCoins(coins);
+    public Task(String name, String description, int coins) {
+        setName(name);
+        setDescription(description);
+        setCoins(coins);
 
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
-        public int getCoins() {
-            return coins;
-        }
-
-        public void setCoins(int coins) {
-            this.coins = coins;
-        }
-<<<<<<< HEAD
     }
-=======
 
-        public int getPriority() {
-            switch (TestAdapter) {
-                case Priority.GREEN:
-                    return 2;
+    public String getName() {
+        return name;
+    }
 
-                case Priority.YELLOW:
-                    return 5;
+    public void setName(String name) {
+        this.name = name;
+    }
 
-                case Priority.RED:
-                    return 8;
-                default:
-                    return 1;
-            }
-        }
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
+    public int getCoins() {
+        return coins;
+    }
 
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
 }
->>>>>>> 079a50f9c987b7dd5382a9437b352e46d98de335
