@@ -2,14 +2,24 @@ package com.example.final_lab_oop.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 
 import com.example.final_lab_oop.R;
+import com.example.final_lab_oop.controllers.AppController;
+import com.example.final_lab_oop.controllers.ReadWriteDelete;
+import com.example.final_lab_oop.models.Task;
 
 public class AddNoteActivity extends AppCompatActivity {
+
+    private AppController appController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +28,12 @@ public class AddNoteActivity extends AppCompatActivity {
 
         //Change back arrow to X
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
+
+        //Gets intent from MainActivity
+        Intent intent = getIntent();
+
+        //casted to an appcontroller to an object
+        appController = (AppController) intent.getSerializableExtra("AppController");
     }
 
     //Creates save item on the top right
@@ -43,10 +59,30 @@ public class AddNoteActivity extends AppCompatActivity {
     }
 
     //Actually Saves Task
-    public void saveTask()
-    {
-        //Connect to backend
+    public void saveTask() {
+        EditText titleET = findViewById(R.id.titleET);
+        EditText descriptionET = findViewById(R.id.descriptionET);
+        RadioButton greenBtn = findViewById(R.id.greenButton);
+        RadioButton redBtn = findViewById(R.id.redButton);
+        RadioButton yellowBtn = findViewById(R.id.yellowButton);
 
+        int coins = 0;
+        if (greenBtn.isChecked()) {
+            coins = 2;
+        } else if (redBtn.isChecked()) {
+            coins = 5;
+        } else if (yellowBtn.isChecked()) {
+            coins = 8;
+        }
+
+        String name = titleET.getText().toString();
+        String description = descriptionET.getText().toString();
+
+
+        Task task = new Task(name, description, coins);
+        //Adds it to an array list
+        appController.addTask(task);
+        ReadWriteDelete.saveTask(appController.getTasks(), this);
         finish();
     }
 }

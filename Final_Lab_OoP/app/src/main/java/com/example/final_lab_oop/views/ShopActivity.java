@@ -1,21 +1,26 @@
 package com.example.final_lab_oop.views;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.Adapter;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_lab_oop.R;
+import com.example.final_lab_oop.models.ShopAdapter;
 
 public class ShopActivity extends AppCompatActivity {
 
     private RecyclerView recycleView;
     private RecyclerView.LayoutManager layoutManager;
-    private RecyclerView.Adapter testAdapter;
+    private RecyclerView.Adapter shopAdapter;
+
+
+    //Hard Coded Shop items
+    private String[] nameColor = {"Red", "Blue", "Green"};
+    private String[] cost = {"60", "60","60"};
+    private int[] colors = {Color.RED, Color.BLUE,Color.GREEN};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +33,8 @@ public class ShopActivity extends AppCompatActivity {
         recycleView = findViewById(R.id.recycleView);
         recycleView.setLayoutManager(layoutManager);
 
-        testAdapter = new TestAdapter(this);
-        recycleView.setAdapter(testAdapter);
+        shopAdapter = new ShopAdapter(this, nameColor, cost, colors);
+        recycleView.setAdapter(shopAdapter);
 
         recycleView.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -1,17 +1,9 @@
 package com.example.final_lab_oop.models;
 
 
+import java.io.Serializable;
 
-import android.widget.Adapter;
-
-import com.example.final_lab_oop.views.TestAdapter;
-
-import java.io.File;
-import java.lang.reflect.Array;
-
-import static java.util.logging.Logger.global;
-
-public class Task {
+public class Task implements Serializable {
 
     private String name;
     private String description;
@@ -21,7 +13,6 @@ public class Task {
         setName(name);
         setDescription(description);
         setCoins(coins);
-
     }
 
     public String getName() {

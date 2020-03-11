@@ -1,5 +1,8 @@
 package com.example.final_lab_oop.controllers;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.example.final_lab_oop.models.*;
 
 import java.io.*;
@@ -7,23 +10,23 @@ import java.util.*;
 
 public class ReadWriteDelete implements java.io.Serializable {
 
-    public static void saveTask(ArrayList<Task> tasks) {
+    public static void saveTask(ArrayList<Task> tasks, Context context) {
         try {
-            FileOutputStream fileStream = new FileOutputStream(new File("tasks.txt"));
+            FileOutputStream fileStream = new FileOutputStream(new File(context.getFilesDir(), "tasks.txt"));
             ObjectOutputStream outputStream = new ObjectOutputStream(fileStream);
 
             outputStream.writeObject(tasks);
-
             outputStream.close();
             fileStream.close();
         } catch (IOException ioe) {
-            System.out.println("Error.");
+
+            System.out.println("Error!");
         }
     }
 
-    public static ArrayList<Task> readTask() {
+    public static ArrayList<Task> readTask(Context context) {
         try {
-            FileInputStream fileStream = new FileInputStream(new File("tasks.txt"));
+            FileInputStream fileStream = new FileInputStream(new File(context.getFilesDir(), "tasks.txt"));
             ObjectInputStream inputStream = new ObjectInputStream(fileStream);
 
             return (ArrayList<Task>) (inputStream.readObject());
@@ -36,7 +39,7 @@ public class ReadWriteDelete implements java.io.Serializable {
 
     public static void saveCoins(int coins) {
         try {
-            FileWriter writer = new FileWriter("coins.txt");
+            FileWriter writer = new FileWriter("test/coins.txt");
             writer.write(coins);
             writer.close();
         } catch (IOException ioe) {
