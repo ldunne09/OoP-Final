@@ -81,6 +81,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void refreshList(){
         taskAdapter.notifyDataSetChanged();
+
+        appController = new AppController(this);
+
+        recyclerView = findViewById(R.id.noteRecycleView);
+
+        taskAdapter = new TaskAdapter(this, appController);
+
+        recyclerView.setAdapter(taskAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 
