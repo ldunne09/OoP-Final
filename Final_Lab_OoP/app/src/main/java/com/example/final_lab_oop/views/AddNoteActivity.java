@@ -22,6 +22,7 @@ import com.example.final_lab_oop.models.TaskAdapter;
 public class AddNoteActivity extends AppCompatActivity {
 
     private AppController appController;
+
     //I added this in
     private TaskAdapter taskAdapter;
 
@@ -94,9 +95,7 @@ public class AddNoteActivity extends AppCompatActivity {
         appController.addTask(task);
 
         ReadWriteDelete.saveTask(appController.getTasks(), this);
-
-        taskAdapter.notifyDataSetChanged();
-
+        setResult(1);
         finish();
 
     }

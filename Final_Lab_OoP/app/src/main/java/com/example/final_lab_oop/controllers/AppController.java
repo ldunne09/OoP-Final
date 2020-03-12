@@ -3,6 +3,7 @@ package com.example.final_lab_oop.controllers;
 import android.content.Context;
 
 import com.example.final_lab_oop.models.Task;
+import com.example.final_lab_oop.models.TaskAdapter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class AppController implements Serializable{
         tasks = ReadWriteDelete.readTask(context);
         if(tasks == null)
             tasks = new ArrayList<>();
+
     }
 
     public void setTasks(ArrayList<Task> tasks) {
@@ -38,7 +40,6 @@ public class AppController implements Serializable{
     }
 
     public Task getTask(int index) {
-
         return tasks.get(index);
     }
 

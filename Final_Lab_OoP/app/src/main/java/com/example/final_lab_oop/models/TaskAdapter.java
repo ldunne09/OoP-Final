@@ -11,18 +11,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.final_lab_oop.R;
 import com.example.final_lab_oop.controllers.AppController;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 
     private Context context;
 
     private AppController appController;
 
-
     public TaskAdapter(Context context, AppController appController){
         this.context = context;
         this.appController = appController;
     }
 
+    //This ia actually
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.note_item, parent, false);
@@ -32,14 +35,15 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     //This populates the array with items that we want to use
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Task currentTask = appController.getTask(position);
 
+        Task currentTask = appController.getTask(position);
         holder.titleTV.setText(currentTask.getName());
         holder.descriptionTV.setText(currentTask.getDescription());
         holder.bountyTV.setText(currentTask.getCoins() + "");
-
-
     }
+
+
+
 
     //This then determines how many rows will be shown on the screen
     @Override

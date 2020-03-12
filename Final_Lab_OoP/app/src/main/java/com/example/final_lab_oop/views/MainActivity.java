@@ -47,12 +47,19 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+
+        taskAdapter.notifyDataSetChanged();
+    }
+
+
     public void goToAddNote(View v)
     {
         Intent intent = new Intent(this, AddNoteActivity.class);
         intent.putExtra("AppController", appController);
         startActivity(intent);
-
     }
 
     public void goToThemes()
@@ -67,9 +74,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void clearList()
-    {
+    public void clearList(){
         appController.clearTasks(this);
+        taskAdapter.notifyDataSetChanged();
+    }
+
+    public void refreshList(){
         taskAdapter.notifyDataSetChanged();
     }
 
@@ -97,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
             //Go To Shop
             case R.id.view_shop:
                 goToShop();
+                return true;
+            case R.id.refresh :
+                refreshList();
                 return true;
             default:
                 return super.onOptionsItemSelected(item); //Fancy way of saying return false

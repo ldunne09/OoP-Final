@@ -20,5 +20,10 @@
             android:title="View Shop"
             app:showAsAction="never"
             />
+        <item
+            android:id="@+id/refresh"
+            android:title="Refresh"
+            app:showAsAction="never"
+            />
     </group>
 </menu>
